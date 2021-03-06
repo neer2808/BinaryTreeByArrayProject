@@ -98,4 +98,21 @@ public void inorderTraversal(int index) {
     return -1;
   }
 
+  // delete operation
+  // to delete a value from the binary tree we will insert the last element of the tree at specific location
+  // the discription of the method is
+  // i called here search method to get the location of the value which you want to delete
+  // if the value found it will return the index other wise it will return -1
+  // after that override the value of that index with last index value of the tree
+  public void delete(int value) {
+    int location = search(value);
+    //If Value does not exists in Array
+    if (location == -1) {
+      return;
+    }else {
+
+      arr[location] = arr[lastusedindex];
+      lastusedindex--;
+    }
+  }//end of method
 }
