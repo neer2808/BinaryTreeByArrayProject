@@ -65,7 +65,6 @@ public void postorderTraversal(int index)
   preorderTraversal(index*2+1);
   System.out.println(arr[index]);
 }
-
 public void inorderTraversal(int index) {
   if (index > lastusedindex) {
     return;
@@ -75,4 +74,28 @@ public void inorderTraversal(int index) {
   preorderTraversal(index * 2 + 1);
 
 }
+// method for level order traversal
+  public  void levelordertraversal()
+  {
+    for(int i=1;i<=lastusedindex;i++)
+    {
+      System.out.println(arr[i]);
+    }
+  }
+ // method for search a value
+ // here return type of the method is int. if the value found it will return the index where it is found
+  // else return -1(means value is not available);
+
+  public int search(int value) {
+    for (int i = 1; i <= lastusedindex; i++) {
+      if (arr[i] == value) {
+        System.out.print(value + " is available in the tree  ");
+
+        return i;
+      }
+    }
+    System.out.println(value+ " is not available in the tree");
+    return -1;
+  }
+
 }
