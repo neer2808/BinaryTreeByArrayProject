@@ -51,7 +51,7 @@ public class BinaryTreeByArray {
   {
     return;
   }
-  System.out.println(arr[index]);
+  System.out.print(arr[index]+ " ");
   preorderTraversal(index*2);
   preorderTraversal(index*2+1);
 }
@@ -63,14 +63,14 @@ public void postorderTraversal(int index)
   }
   preorderTraversal(index*2);
   preorderTraversal(index*2+1);
-  System.out.println(arr[index]);
+  System.out.print(arr[index] + " " );
 }
 public void inorderTraversal(int index) {
   if (index > lastusedindex) {
     return;
   }
   preorderTraversal(index * 2);
-  System.out.println(arr[index]);
+  System.out.print(arr[index]+ " ");
   preorderTraversal(index * 2 + 1);
 
 }
@@ -79,7 +79,7 @@ public void inorderTraversal(int index) {
   {
     for(int i=1;i<=lastusedindex;i++)
     {
-      System.out.println(arr[i]);
+      System.out.print(arr[i]+ " ");
     }
   }
  // method for search a value
