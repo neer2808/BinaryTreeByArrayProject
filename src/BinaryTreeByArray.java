@@ -18,7 +18,61 @@ public class BinaryTreeByArray {
 // constructor to construct blank tree
   public BinaryTreeByArray(int capacity)
   {
-    arr = new int[capacity]; // array creation
+    arr = new int[capacity+1]; // array creation
     lastusedindex= 0;
   }
+  // method to insert the value
+  public void insert(int value)
+  {
+      if(arr.length-1 == lastusedindex)
+      {
+        System.out.println("list is full");
+      }
+      else
+      {
+        // you can also write
+        // arr[lastusedindex+1]= value;
+        // lastusedindex++;
+        arr[++lastusedindex]= value;
+      }
+  }
+// Tree Traversal
+// Traversal means the process of visiting each of the nodes in a tree and examine the value stored in the node
+// 1) Depth First Search
+     //  a) Pre order Traversal (DLR)
+     //  b) Post order Traversal(LRD)
+     //  c) In order Traversal(LDR)
+// 2) Breadth First Search
+     // a) level Order Traversal
+
+  public void preorderTraversal(int index)
+{
+  if(index>lastusedindex)
+  {
+    return;
+  }
+  System.out.println(arr[index]);
+  preorderTraversal(index*2);
+  preorderTraversal(index*2+1);
+}
+public void postorderTraversal(int index)
+{
+  if(index>lastusedindex)
+  {
+    return;
+  }
+  preorderTraversal(index*2);
+  preorderTraversal(index*2+1);
+  System.out.println(arr[index]);
+}
+
+public void inorderTraversal(int index) {
+  if (index > lastusedindex) {
+    return;
+  }
+  preorderTraversal(index * 2);
+  System.out.println(arr[index]);
+  preorderTraversal(index * 2 + 1);
+
+}
 }
