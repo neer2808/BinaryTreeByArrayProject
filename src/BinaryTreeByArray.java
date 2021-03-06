@@ -1,17 +1,17 @@
-// A tree node can have any no of children but in binary tree each node can have atmost two children.
-// Understanding binary tree is a prerequisite for more advance trees like (BST,AVL RedBlack, Expression Tree) etc.
-// Here i am writing the implementation of Binary Tree By Array
-// when we want to store a tree in an array we never use the 0th cell because of mathematical complexity.
-// To root node we store at the first cell
-// To refer Left child we use (2 * x) here x is parent node)
-// To refer Right child we use ( 2 * x + 1)
-// Binary Tree common operations
-// 1) creation of Tree
-// 2) insertion of a node
-// 3) deletion of a node
-// 4) searching of a node
-// 5) treaverse all nodes
-
+/* A tree node can have any no of children but in binary tree each node can have atmost two children.
+ Understanding binary tree is a prerequisite for more advance trees like (BST,AVL RedBlack, Expression Tree) etc.
+ Here i am writing the implementation of Binary Tree By Array
+ when we want to store a tree in an array we never use the 0th cell because of mathematical complexity.
+ To root node we store at the first cell
+ To refer Left child we use (2 * x) here x is parent node)
+ To refer Right child we use ( 2 * x + 1)
+ Binary Tree common operations
+ 1) creation of Tree
+ 2) insertion of a node
+ 3) deletion of a node
+ 4) searching of a node
+ 5) treaverse all nodes
+*/
 public class BinaryTreeByArray {
   int arr[]; // array declaration
   int lastusedindex;
@@ -36,15 +36,15 @@ public class BinaryTreeByArray {
         arr[++lastusedindex]= value;
       }
   }
-// Tree Traversal
-// Traversal means the process of visiting each of the nodes in a tree and examine the value stored in the node
-// 1) Depth First Search
-     //  a) Pre order Traversal (DLR)
-     //  b) Post order Traversal(LRD)
-     //  c) In order Traversal(LDR)
-// 2) Breadth First Search
-     // a) level Order Traversal
-
+/* Tree Traversal
+ Traversal means the process of visiting each of the nodes in a tree and examine the value stored in the node
+ 1) Depth First Search
+       a) Pre order Traversal (DLR)
+       b) Post order Traversal(LRD)
+       c) In order Traversal(LDR)
+ 2) Breadth First Search
+      a) level Order Traversal
+*/
   public void preorderTraversal(int index)
 {
   if(index>lastusedindex)
@@ -82,10 +82,10 @@ public void inorderTraversal(int index) {
       System.out.print(arr[i]+ " ");
     }
   }
- // method for search a value
+ /* method for search a value
  // here return type of the method is int. if the value found it will return the index where it is found
-  // else return -1(means value is not available);
-
+  else return -1(means value is not available);
+*/
   public int search(int value) {
     for (int i = 1; i <= lastusedindex; i++) {
       if (arr[i] == value) {
@@ -98,13 +98,15 @@ public void inorderTraversal(int index) {
     return -1;
   }
 
-  // delete operation
-  // to delete a value from the binary tree we will insert the last element of the tree at specific location
-  // the discription of the method is
-  // i called here search method to get the location of the value which you want to delete
-  // if the value found it will return the index other wise it will return -1
-  // after that override the value of that index with last index value of the tree
+  /* delete operation
+   to delete a value from the binary tree we will insert the last element of the tree at specific location
+   the discription of the method is
+   i called here search method to get the location of the value which you want to delete
+   if the value found it will return the index other wise it will return -1
+   after that override the value of that index with last index value of the tree
+  */
   public void delete(int value) {
+
     int location = search(value);
     //If Value does not exists in Array
     if (location == -1) {
@@ -115,4 +117,4 @@ public void inorderTraversal(int index) {
       lastusedindex--;
     }
   }//end of method
-}
+}// end of the class
